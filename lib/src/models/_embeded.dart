@@ -10,15 +10,19 @@ class EmbedModel {
   EmbedModel({this.author, this.media, this.categories});
 
   factory EmbedModel.fromMap(Map<String, dynamic> json) {
-    List<Author>? author = null;
+    List<Author>? authors = null;
     if (json['author'] != null && json['author'] is List) {
-      author = [];
-      try {
+      authors = [];
+
         for (var author in json['author']) {
-          author.add(new Author.fromMap(author));
+          try{
+          authors.add(new Author.fromMap(author));}
+          catch(e){
+
+          }
         }
         ;
-      } catch (e) {}
+
     }
     List<Media>? media = null;
     if (json['wp:featuredmedia'] != null && json['wp:featuredmedia'] is List) {
@@ -49,7 +53,7 @@ class EmbedModel {
         }
       }
     }
-    return EmbedModel(author: author, categories: categories, media: media);
+    return EmbedModel(author: authors, categories: categories, media: media);
   }
 }
 
