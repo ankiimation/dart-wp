@@ -10,5 +10,5 @@ environment:
 dependencies:
   collection: ^1.15.0
   dio: ^4.0.0
-  html: ^0.15.0
   logger: ^1.0.0
+  html: ^0.15.0
